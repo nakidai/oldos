@@ -1,0 +1,152 @@
+; Clear the screen and set cursor position to (0, 0)
+clear:
+
+; Detect display. Video mode 0 if no display,
+; 1 if monochrome display, 2 if colour display
+detect_video:
+
+; Print terminated string
+;
+; DS:SI - Pointer on string
+print_string:
+
+; Print symbol
+;
+; AL - symbol
+; print_symbol:
+
+; Reset buffer
+; DS:SI - buffer
+; CX - Length
+reset_buffer:
+
+; Input string
+;
+; DS:SI - Pointer on buffer
+; CX - Buffer length
+; ---
+; AX - Last pressed key
+input_string:
+
+; Compare strings
+;
+; DS:SI - Pointer on first string
+; DS:BX - Pointer on second string
+; ---
+; Carry flag - 1 if strings are not equal
+compare_strings:
+
+; Copies string
+;
+; DS:SI - Pointer on memory from where copy
+; DS:BX - Pointer on memory where copy
+copy_string:
+
+; Calculate len of string
+;
+; DS:SI - Pointer on string
+; ---
+; AX - Len of string
+calculate_string_len:
+
+; ------------------------------------------------------------------
+; os_print_digit -- Displays contents of AX as a single digit
+; Works up to base 37, ie digits 0-Z
+; IN: AX = "digit" to format and print
+os_print_digit:
+
+; ------------------------------------------------------------------
+; os_print_1hex -- Displays low nibble of AL in hex format
+; IN: AL = number to format and print
+os_print_1hex:
+
+; Print AL in hex
+;
+; AL - Number to print
+os_print_2hex:
+
+; Print AX in hex
+;
+; AX - Number to print
+print_hex:
+
+; Print values of registers to screen
+;
+; AX, BX, CX, DX, SI, DI, ES, DS, SS, FLAGS - Registers to print
+print_registers:
+
+; ------------------------------------------------------------------
+; os_string_to_int -- Convert decimal string to integer value
+; IN: SI = string location (max 5 chars, up to '65536')
+; OUT: AX = number
+string_to_int:
+
+; Convert unsigned int to string
+;
+; AX - Num to convert
+; SI - Where save string
+; ---
+; SI - Pointer to string with converted num
+int_to_string:
+
+; Find file on disk from filename
+; BX - filename
+; ---
+; SI - filename position in table
+; CF - 1 if file not exist
+find_file:
+
+; Remove file
+; BX - filename
+; ---
+; CF - 1 if file not exist
+remove_file:
+
+; Append file to FS table
+; AL - Cylinder
+; AH - Head
+; BL - sector
+; BH - Size
+; SI - Pointer on name (Max 11 chars)
+append_file:
+
+; Rename file in FS table
+; SI - Filename
+; BX - To what filename change
+rename_file:
+
+; Read file and load to memory
+; SI - File in FS table
+; CX - Where load
+load_file:
+
+; Write file and load to memory
+; SI - File in FS table
+; CX - Where
+save_file:
+
+; Write FS table to disk
+write_table:
+
+; Copy memory from A to B
+; SI - A
+; BX - B
+; CX - Number of bytes to copy
+copy_memory:
+
+; Get cursor position
+; ---
+; DL - X
+; DH - Y
+get_cursor_pos:
+
+; Set cursor position
+; DL - X
+; DH - Y
+set_cursor_pos:
+
+; Print values of registers and halt cpu
+dbg_halt_cpu:
+
+; Shows goodbye message and stops the CPU
+halt_cpu:
