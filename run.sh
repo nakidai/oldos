@@ -1,16 +1,17 @@
 #!/bin/bash
 
+mkdir iso/
 rm iso/os.bin
 
 echo
 echo
-./fasm bootloader.asm iso/os.bin
+fasm bootloader.asm iso/os.bin
 echo
-./fasm programs/calculator.asm iso/calc.bin
+fasm programs/calculator.asm iso/calc.bin
 echo
-# ./fasm programs/notepad.asm iso/notepad.bin
+# fasm programs/notepad.asm iso/notepad.bin
 # echo
-./fasm programs/viewer.asm iso/viewer.bin
+fasm programs/viewer.asm iso/viewer.bin
 echo
 nasm -fbin programs/snake.asm -o iso/snake.bin
 echo
