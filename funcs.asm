@@ -772,6 +772,22 @@ write_table:
     popa
     ret
 
+; Change table
+; SI - table in FS table (0 - return to previous table)
+change_table:
+    pusha
+    mov ah, 02h
+    mov al, 4
+    mov dl, [BOOT_DRIVE]
+    mov ch, [si]
+    mov dh, [si+1]
+    mov cl, [si+2]
+    mov bx, 0x8000
+    int 13h
+    popa
+    ret
+
+
 
 wait_key:
     mov ah, 11h

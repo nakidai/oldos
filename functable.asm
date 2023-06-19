@@ -34,6 +34,7 @@ functable:
     dw get_cursor_pos
     dw set_cursor_pos
     dw read_table
+    dw change_table
 dw 0
 
 times 1024 - ($-$$) db 0
