@@ -1,4 +1,5 @@
-greetings db "Welcome to the Command Line (c)Plaza 2022-2023.", 0Dh, 0Ah, \
+greetings db "Welcome to the Command Line 2022-2024.", 0Dh, 0Ah, \
+             "Originally made by plaza521.", 0Dh, 0Ah, \
              "Write help to see list of commands.", 0
 
 goodbye db "Uhadi!", 0
